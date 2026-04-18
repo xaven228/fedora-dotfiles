@@ -1,17 +1,28 @@
 # Fedora Dotfiles
 
-Minimal Fedora workstation setup for daily use:
-- development (Java / Node.js / web)
-- system administration
-- fast terminal workflow without heavyweight frameworks
+Minimal Fedora workstation setup for development, administration and an actually fast terminal.
 
-## What's Inside
+- ZSH without `oh-my-zsh`
+- practical Git aliases and sane defaults
+- Vim config with search, git and IDE-like features
+- Docker, Node.js and Java-friendly shell helpers
 
-- `.zshrc` - shell config with aliases, completion, `fzf`, `zoxide`, Docker and system helpers
-- `.gitconfig` - git defaults and aliases for a clean everyday workflow
-- `.gitignore_global` - global ignore rules for OS/editor noise
-- `.vimrc` - Vim setup with file search, git integration and Coc-based IDE features
-- `install.sh` - installer that backs up existing files and applies this repo to your home directory
+## Overview
+
+This repository contains the dotfiles I use on Fedora for daily work. The goal is simple:
+
+- keep everything plain-text and easy to understand
+- avoid heavy frameworks
+- make the terminal productive out of the box
+- keep installation safe with automatic backups
+
+## Included Files
+
+- `.zshrc` - aliases, completion, prompt, `fzf`, `zoxide`, Docker/system helpers
+- `.gitconfig` - git settings, aliases and workflow defaults
+- `.gitignore_global` - global ignore rules for OS/editor junk
+- `.vimrc` - Vim setup with plugins for navigation, git and Coc-based IDE features
+- `install.sh` - installs configs into `$HOME` and backs up existing files first
 
 ## Quick Start
 
@@ -34,7 +45,7 @@ git config --global core.excludesfile ~/.gitignore_global
 
 ## Recommended Packages
 
-Fedora Workstation / GNOME is the target environment.
+Target system: Fedora Workstation with GNOME.
 
 ```bash
 sudo dnf install -y \
@@ -53,7 +64,7 @@ nodejs npm \
 remmina freerdp
 ```
 
-## Docker
+## Docker Setup
 
 ```bash
 sudo dnf install -y dnf-plugins-core
@@ -67,7 +78,7 @@ sudo usermod -aG docker "$USER"
 
 Log out and back in after adding your user to the `docker` group.
 
-## ZSH
+## ZSH Setup
 
 ```bash
 chsh -s "$(which zsh)"
@@ -75,24 +86,32 @@ chsh -s "$(which zsh)"
 
 Log out and back in after changing the default shell.
 
-## Highlights
+## Features
 
 ### Terminal
 
-- `eza`-based listing aliases
+- `eza`-based `ls`, `ll`, `la`, `lt`
+- interactive completion and history improvements
 - `fzf` integration when installed
-- smart directory jumping with `zoxide`
-- helper functions like `mkcd`, `extract`, `proxyoff`
+- `zoxide` navigation with `z`
+- utility functions like `mkcd`, `extract`, `proxyoff`
 
 ### Git
 
-- short aliases like `git st`, `git aa`, `git cm`
-- auto-upstream on push
-- sensible defaults for diff, merge conflicts and rebase autostash
+- aliases like `git st`, `git aa`, `git cm`, `git lg`
+- `push.autoSetupRemote = true`
+- `rebase.autoStash = true`
+- `merge.conflictstyle = zdiff3`
 
 ### Docker
 
-- quick helpers like `dps`, `dcud`, `dcd`, `dlog`
+- shortcuts like `dps`, `dpsa`, `dcud`, `dcd`, `dlog`
+
+### Vim
+
+- `NERDTree`, `fzf.vim`, `vim-fugitive`
+- `vim-airline`
+- `coc.nvim` for completion/navigation
 
 ## Examples
 
@@ -121,6 +140,7 @@ z my-project
 ├── .vimrc
 ├── .zshrc
 ├── install.sh
+├── LICENSE
 └── README.md
 ```
 
@@ -137,6 +157,10 @@ z my-project
 - [ ] add Neovim alternative
 - [ ] split work/private aliases
 - [ ] add backup/restore helpers
+
+## License
+
+MIT
 
 ## Author
 
