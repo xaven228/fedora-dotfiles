@@ -1,0 +1,66 @@
+[user]
+	name = Ruslan Sazonov
+	email = heckfy272272@yandex.ru
+[init]
+	defaultBranch = main
+[core]
+	editor = vim
+	autocrlf = input
+    pager = less -FRX
+    whitespace = trailing-space,space-before-tab
+
+[pull]
+    rebase = false
+
+[push]
+    autoSetupRemote = true
+    default = current
+
+[merge]
+    conflictstyle = zdiff3
+
+[diff]
+    colorMoved = default
+
+[rebase]
+    autoStash = true
+
+[fetch]
+    prune = true
+
+[help]
+    autocorrect = prompt
+
+[color]
+    ui = auto
+
+[alias]
+    st = status -sb
+    s = status
+    a = add
+    aa = add .
+    c = commit
+    cm = commit -m
+    ca = commit --amend
+    cane = commit --amend --no-edit
+    co = checkout
+    sw = switch
+    br = branch
+    last = log -1 HEAD --stat
+    lg = log --oneline --graph --decorate --all
+    lga = log --oneline --graph --decorate --all --abbrev-commit
+    df = diff
+    dfs = diff --staged
+    unstage = restore --staged
+    restore-file = restore
+    rb = rebase
+    rs = restore
+    cl = clone
+    pl = pull
+    ps = push
+    pf = push --force-with-lease
+    ft = fetch --all --prune --tags
+    sta = stash push
+    stp = stash pop
+    std = stash drop
+    who = shortlog -sn
