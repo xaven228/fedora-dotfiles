@@ -32,6 +32,18 @@ cd ~/dotfiles
 ./install.sh
 ```
 
+For a symlink-based setup:
+
+```bash
+./install.sh --symlink
+```
+
+For a preview without changing anything:
+
+```bash
+./install.sh --dry-run
+```
+
 ## Manual Install
 
 ```bash
@@ -41,6 +53,18 @@ cp .gitignore_global ~/.gitignore_global
 cp .vimrc ~/.vimrc
 
 git config --global core.excludesfile ~/.gitignore_global
+```
+
+## Installer Options
+
+The installer supports both copy and symlink workflows:
+
+```bash
+./install.sh --copy
+./install.sh --symlink
+./install.sh --file .zshrc --file .gitconfig
+./install.sh --dry-run --symlink
+./install.sh --no-git
 ```
 
 ## Recommended Packages
